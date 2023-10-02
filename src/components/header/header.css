@@ -1,0 +1,37 @@
+/* header css */
+header.header {
+	/* dark grey background and white text */
+	background-color: #333;
+	color: white;
+	font-size: 30px;
+	/* padding responsive */
+	padding: 1vw;
+	/* text alignement */
+	text-align: center;
+}
+
+h1.title {
+	/* font size responsive */
+	font-size: 2.5vw;
+}
+
+.title-link {
+	/* remove underline */
+	text-decoration: none;
+	/* white text */
+	color: white;
+}
+
+@media screen and (max-width: 1100px) {
+	/* font size responsive */
+	h1.title {
+		font-size: 4vw;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	/* font size responsive */
+	h1.title {
+		font-size: 6vw;
+	}
+}

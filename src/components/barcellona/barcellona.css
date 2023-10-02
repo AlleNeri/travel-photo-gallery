@@ -1,0 +1,11 @@
+div.middle {
+	/* align the div in the middle */
+	margin: 0 auto;
+}
+
+/* 3/4 of the screen only for large screens */
+@media (min-width: 992px) {
+	div.middle {
+		width: 75%;
+	}
+}
