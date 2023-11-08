@@ -1,8 +1,8 @@
-import { Photo } from 'react-photo-album';
+import { MyPhoto } from "../../myPhoto";
 
 const basePath: string = '../../../photo/';
 
-const photos: Photo[] = [
+const photos: MyPhoto[] = [
 	{ src: `${basePath}IMG_3232.jpg`, width: 3072, height: 2048, title: 'IMG_3232.jpg', description: 'IMG_3232.jpg' },
 	{ src: `${basePath}A0BD371D-0549-4F9E-A452-8736C88D7D10.jpg`, width: 2999, height: 3999, title: 'A0BD371D-0549-4F9E-A452-8736C88D7D10.jpg', description: 'A0BD371D-0549-4F9E-A452-8736C88D7D10.jpg' },
 	{ src: `${basePath}AFA1DAC0-96D5-4BEC-8CDA-14E1483818A7.jpg`, width: 3840, height: 5120, title: 'AFA1DAC0-96D5-4BEC-8CDA-14E1483818A7.jpg', description: 'AFA1DAC0-96D5-4BEC-8CDA-14E1483818A7.jpg' },

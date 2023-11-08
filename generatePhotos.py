@@ -8,7 +8,7 @@ from PIL import Image
 path = sys.argv[1]
 
 # imports and const
-imports = 'import { Photo } from \'react-photo-album\';\n\n'
+imports = 'import { MyPhoto } from \'../../myPhoto\';\n\n'
 basePathConst = 'const basePath: string = \'../../../photo/\';\n\n'
 
 # get the files in the path
