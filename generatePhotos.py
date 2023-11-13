@@ -9,7 +9,7 @@ path = sys.argv[1]
 
 # imports and const
 imports = 'import { MyPhoto } from \'../../myPhoto\';\n\n'
-basePathConst = 'const basePath: string = \'src/assets/photo/\';\n\n'
+basePathConst = 'const basePath: string = \'./photo/\';\n\n'
 
 # get the files in the path
 files = os.listdir(path)
