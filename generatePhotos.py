@@ -9,14 +9,14 @@ path = sys.argv[1]
 
 # imports and const
 imports = 'import { MyPhoto } from \'../../myPhoto\';\n\n'
-basePathConst = 'const basePath: string = \'../../../photo/\';\n\n'
+basePathConst = 'const basePath: string = \'../../assets/photo/\';\n\n'
 
 # get the files in the path
 files = os.listdir(path)
 
 # create the array
 prefix = '\n\t{ src: `${basePath}'
-array = 'const photos: Photo[] = ['
+array = 'const photos: MyPhoto[] = ['
 for file in files:
     with Image.open(path + '/' + file) as img:
         # get the img dimensions
