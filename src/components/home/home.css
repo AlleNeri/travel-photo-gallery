@@ -1,0 +1,41 @@
+div.home {
+	text-align: center;
+	color: white;
+}
+
+img.left-logo {
+	/* rotazione verso sinsitra di 15 gradi */
+	transform: rotate(-20deg);
+}
+
+img.right-logo {
+	/* rotazione verso destra di 15 gradi */
+	transform: rotate(20deg);
+}
+
+div.home ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+div.home ul li {
+	margin-bottom: 10px;
+	font-size: 2em;
+}
+
+@media screen and (max-width: 768px) {
+	div.home ul li {
+		/* font più grande */
+		font-size: 1.5em;
+	}
+}
+
+div.home ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+div.home ul li a:hover {
+	color: #ff6600;
+}

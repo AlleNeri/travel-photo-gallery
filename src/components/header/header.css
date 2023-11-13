@@ -5,9 +5,11 @@ header.header {
 	color: white;
 	font-size: 30px;
 	/* padding responsive */
-	padding: 1vw;
+	padding: 1vw 0;
 	/* text alignement */
 	text-align: center;
+	/* dimension responsive */
+	width: 100%;
 }
 
 h1.title {
