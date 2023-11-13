@@ -4,33 +4,40 @@
 import os, sys
 from PIL import Image
 
+def minusReplace(string):
+    return string.replace('-', '_')
+
+def importImages(folder_path):
+    outputStr = ''
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg') or filename.endswith('.webp'):
+            image_name = os.path.splitext(filename)[0]
+            outputStr += f'import {minusReplace(image_name)} from "./photo/{filename}"\n'
+    return outputStr
+
+def arrayImages(folder_path):
+    outputStr= 'import { MyPhoto } from "../../myPhoto";\n' + '\nconst photos: MyPhoto[] = [\n'
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg') or filename.endswith('.webp'):
+            with Image.open(folder_path + '/' + filename) as img:
+                image_name = os.path.splitext(filename)[0]
+                width, height = img.size
+                outputStr += '\t{' + f'src: {minusReplace(image_name)}, width: {str(width)}, height: {str(height)}, title: "{image_name}", description: "{image_name}"' + '},\n'
+    outputStr += '];\n\n'
+    outputStr += 'export default photos;'
+    return outputStr
+
 # get the path from the command line
 path = sys.argv[1]
 
-# imports and const
-imports = 'import { MyPhoto } from \'../../myPhoto\';\n\n'
-basePathConst = 'const basePath: string = \'./photo/\';\n\n'
+# generate the imports
+imports = importImages(path)
 
-# get the files in the path
-files = os.listdir(path)
-
-# create the array
-prefix = '\n\t{ src: `${basePath}'
-array = 'const photos: MyPhoto[] = ['
-for file in files:
-    with Image.open(path + '/' + file) as img:
-        # get the img dimensions
-        width, height = img.size
-        # add the photo to the array
-        array += prefix + file + '`, width: ' + str(width) + ', height: ' + str(height) + ', title: \'' + file + '\', description: \'' + file + '\' },'
-array += '\n];\n\n'
-
-# export the array
-export = 'export default photos;\n'
+#generate the array
+array = arrayImages(path)
 
 # write the array in a file
 with open('photos.tsx', 'w') as f:
     f.write(imports)
-    f.write(basePathConst)
+    f.write("\n")
     f.write(array)
-    f.write(export)

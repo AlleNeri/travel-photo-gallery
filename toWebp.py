@@ -29,7 +29,7 @@ for immagine in immagini_da_convertire:
     percorso_immagine_convertita = os.path.join(cartella_immagini_convertite, os.path.splitext(immagine)[0] + ".webp")
     
     comando = f"cwebp {percorso_immagine_da_convertire} -o {percorso_immagine_convertita}"
-    subprocess.run(comando)
+    subprocess.run(comando, shell=True)
     
     print(f"Immagine convertita: {immagine}")
 
