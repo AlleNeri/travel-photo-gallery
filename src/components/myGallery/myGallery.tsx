@@ -2,6 +2,8 @@ import { useState } from 'react';
 import PhotoAlbum, { Photo } from 'react-photo-album'
 import Lightbox from 'yet-another-react-lightbox';
 import { Captions, Fullscreen, Slideshow, Thumbnails, Zoom } from 'yet-another-react-lightbox/plugins';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { ClipLoader } from 'react-spinners';
 
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
@@ -18,7 +20,21 @@ const MyGallery = (props: { photos: Photo[] }) => {
 			<PhotoAlbum
 				photos={photos}
 				layout='masonry'
-				onClick={({ index }) => setIndex(index)}
+				renderPhoto={({ photo, layout }) => {
+					const { src } = photo;
+					const { width, height } = layout;
+					return <div
+						className='my-padding'
+						onClick={()=> setIndex(layout.index)}
+					>
+						<LazyLoadImage
+							placeholder={ <ClipLoader color='#fff' /> }
+							src={src}
+							width={width}
+							height={height}
+						/>
+					</div>;
+				}}
 			/>
 		</div>
 		<Lightbox
